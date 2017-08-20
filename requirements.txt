@@ -1,0 +1,7 @@
+Flask
+hashlib
+pptx
+python-Mysqldb
+werkzeug.utils
+gGTS
+
