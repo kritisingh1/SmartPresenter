@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SmartPresenter</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	 <link rel="stylesheet" type="text/css" href="../static/demo.css" />
+  <link rel="stylesheet" type="text/css" href="../static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../static/animate-custom.css" />
+        <!-- <script type="text/javascript" src="./scripts/preloader.js"></script> -->
+        <script type="text/javascript" src="../static/script.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+</head>
+<body>
+<div class="audioimg">
+  <img src="../static/audio.png" style="height: 100%; width: 100%;">
+</div>
+<div id="prompt">
+                {% if session_user_name %}
+                    <p>Hello <b>{{ session_user_name }}</b></p>
+                {% endif %}
+                <br>
+Here you can upload the concerned powerpoint presentation to be converted to audio file. Cheers!</h1>	
+<br>
+<div id="flup">
+  <img src="../static/flup.png" style="height: 100%; width: 100%;">
+</div>
+<div class="upload">
+<form action="/play" method="POST" enctype="multipart/form-data">
+ <div>
+   <label for="file"><h1>Choose file to upload</h1></label>
+   <input type="file" id="file" name="file" multiple>
+ </div>
+ <div>
+   <button id="play">Submit</button>
+ </div>
+</form>
+</div>
+</body>
+</html>

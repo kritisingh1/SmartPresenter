@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SmartPresenter</title>
+	<!-- Latest compiled and minified CSS -->
+	
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+             $(window).on('load', (function(){
+                $('.container').addClass("hidden");
+                $('.preloader').delay(1000).fadeOut(4000);
+                
+               /* $('.container').delay(5000);*/
+            }));
+             window.setTimeout(function(){
+                $('.container').removeClass("hidden");
+                }, 5000);
+        </script>
+        <link rel="stylesheet" type="text/css" href="../static/demo.css" />
+        <link rel="stylesheet" type="text/css" href="../static/style.css" />
+		<link rel="stylesheet" type="text/css" href="../static/animate-custom.css" />
+        <!-- <script type="text/javascript" src="./scripts/preloader.js"></script> -->
+        <script type="text/javascript" src="../static/script.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+       
+</head>
+<body>
+<div class="preloader">
+<div id="loader-wrapper">
+    <div id="loader">
+
+    </div>
+
+</div>
+<div id="preloader-text">WELCOME</div>
+</div>
+
+	<div class="container">
+            <!-- Codrops top bar -->
+            <div class="codrops-top">
+                <span class="right">
+                    
+                </span>
+                <div class="clr"></div>
+            </div><!--/ Codrops top bar -->
+            <header>
+                <h1>SmartPresenter App</h1>
+				<nav class="codrops-demos">
+					<span>For registration, Click <strong>"Join Us"</strong></span>
+					
+				</nav>
+            </header>
+            <section>				
+                <div id="container_demo" >
+                    <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="describe">
+                    SmartPresenter will convert any .pptx file you upload in audio file.
+                        
+                    </div>
+                    <div id="pptimg">
+                        <img src="../static/3dspeech.jpg">
+                    </div>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="/login" autocomplete="on" method="POST"> 
+                                <h1>Log in</h1> 
+                                <p> 
+                                    <label for="username" class="uname"> Your email or username </label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                                </p>
+                                <p> 
+                                    <label for="password" class="youpasswd"> Your password </label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="eg. jjkl987ty" /> 
+                                </p>
+                                <p class="keeplogin"> 
+									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+									<label for="loginkeeping">Keep me logged in</label>
+								</p>
+                                <p class="login button"> 
+                                    <input type="submit" value="Login" href="/login" /> 
+								</p>
+                                <p class="change_link">
+									Not a member yet ?
+									<a href="#toregister" class="to_register">Join us</a>
+								</p>
+                            </form>
+                        </div>
+
+                        <div id="register" class="animate form">
+                            <form  action="/signup" autocomplete="on" method="POST"> 
+                                <h1> Sign up </h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname">Your username</label>
+                                    <input id="usernamesignup" name="username" required="required" type="text" placeholder="mysuperusername690" />
+                                </p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail"> Your email</label>
+                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="123ACX@mail.com"/> 
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd">Your password </label>
+                                    <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. AAAAA1123"/>
+                                </p>
+                                <p> 
+                                    <label for="passwordsignup_confirm" class="youpasswd">Please confirm your password </label>
+                                    <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. AAAAA123"/>
+                                </p>
+                                <p class="signin button"> 
+									<input type="submit" value="Sign up" href="/signup"/> 
+								</p>
+                                <p class="change_link">  
+									Already a member ?
+									<a href="#tologin" class="to_register"> Go and log in </a>
+								</p>
+                            </form>
+                        </div>
+						
+                    </div>
+                </div>  
+            </section>
+        </div>
+</body>
+</html>
