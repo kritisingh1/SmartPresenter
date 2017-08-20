@@ -12,7 +12,7 @@ upload_folder = '/home/harsha/harsha/FlaskApp'
 app = Flask(__name__)
 app.config['upload_folder'] = upload_folder
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
-db = MySQLdb.connect(host="localhost", user="root", passwd="harsha_sdslabs", db="pptapp")
+db = MySQLdb.connect(host="localhost", user="", passwd="", db="pptapp")
 cur = db.cursor()
 app.debug = True
 
@@ -28,16 +28,11 @@ def main():
 def play():
 
 	if request.method == "GET":
-		#return
 		return send_from_directory('static', 'audio.mp3') 
 
 	file = request.files['file']
-	#print file
 	prs = Presentation(file)
 	fo = ''
-	#fo = open("content.txt", "w")
-	# text_runs will be populated with a list of strings,
-	# one for each text run in presentation
 	for slide in prs.slides:
 		list_of_elements = []
 		for shape in slide.shapes:
@@ -50,29 +45,22 @@ def play():
                                 list_of_elements.append(line)
 	
                 for elements in list_of_elements:
-                    #print elements
-                    #fo.write(elements +'\n')
                     fo += (elements + '\n')
-                #fo.write('\n')
+               
                 fo += ('\n')
-        #fo.close()
-        #print fo
+        
+        
         from gtts import gTTS
         import os
         print list_of_elements
         tts = gTTS(text="".join(list_of_elements) , lang='en')
         
         filename = secure_filename("audio.mp3")
-        #dump(filename)
-        #tts.save(os.path.join(app.config['upload_folder', filename]))
+        
         tts.save("/home/harsha/harsha/SmartPresenter/static/audio.mp3")
         os.system("mpg321 /home/harsha/harsha/SmartPresenter/static/audio.mp3")
         return render_template('main2.html')
-	#import pyttsx
-	#engine = pyttsx.init()
-	#engine.setProperty('rate',0.1)
-	#engine.say(list_of_elements)
-	#engine.runAndWait()
+	
 
 
 
